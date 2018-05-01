@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-
     public GameObject boomPrefab;
 
     void OnCollisionEnter(Collision other)
     {
-        Instantiate(boomPrefab, transform.position, transform.rotation);
+        if (boomPrefab)
+        {
+            Instantiate(boomPrefab, transform.position, transform.rotation);
+        }
 
-		Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
-
 }
